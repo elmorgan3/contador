@@ -73,7 +73,7 @@ public class MainActivity extends Activity {
         numeroReset.setText("");
 
         //Muestro el resultado del contador
-        textoResultado.setText(" " + contador);
+        textoResultado.setText("" + contador);
     }
 
 
