@@ -2,7 +2,9 @@ package com.example.morgan.contador;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -74,6 +76,13 @@ public class MainActivity extends Activity {
 
         //Muestro el resultado del contador
         textoResultado.setText("" + contador);
+
+
+        //Instanciamos este metodo que servira para que al desplegar el teclado no mueva la app
+        InputMethodManager miTeclado = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+
+        //Con esto conseguimos que al pulsar el reset el teclado se oculte automáticamente
+        miTeclado.hideSoftInputFromWindow(numeroReset.getWindowToken(),0);
     }
 
 
