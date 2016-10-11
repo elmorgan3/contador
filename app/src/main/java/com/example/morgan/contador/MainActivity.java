@@ -3,7 +3,9 @@ package com.example.morgan.contador;
 import android.app.Activity;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -23,8 +25,17 @@ public class MainActivity extends Activity {
         //La inicializo aqui en el contructor junto con el contadir
         textoResultado = (TextView)findViewById(R.id.textViewNum);
 
-
         contador = 0;
+
+        ///////////esto es de una classe y lo otro de un elemento osea un objeto
+        //Creamos una instancia de la clase EventoTeclado
+        EventoTeclado teclado=new EventoTeclado();
+
+        //Creamos un objeto de tipo EditText que se identifique con el numero del reset
+        EditText n_reseteo=(EditText)findViewById(R.id.editTextNumeroReseteo);
+
+        //Este objeto lo ponemos a la escucha del teclado
+        n_reseteo.setOnEditorActionListener(teclado);
     }
 
     public void suma(View vista)
@@ -86,6 +97,24 @@ public class MainActivity extends Activity {
     }
 
 
+    //Esta clase es para que funcione el ok del teclado
+    class EventoTeclado implements TextView.OnEditorActionListener
+    {
+
+        //Esta funcion se ejecuta cuando pulsan el ok del teclado
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+        {
+
+            //Esta condicion comprueba si se a ocultado el teclado con el ok
+            if(actionId== EditorInfo.IME_ACTION_DONE)
+            {
+                //Entonces llamamos a la funcion de reset. Nos obliga a ponerle un parametro pero poniendo un null se solventa este problema
+                reset(null);
+            }
+            return false;
+        }
+    }
 
 
     /*
