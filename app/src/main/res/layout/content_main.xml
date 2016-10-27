@@ -55,7 +55,7 @@
         <android.support.v4.widget.Space
             android:layout_width="75dp"
             android:layout_height="0dp" />
-        
+
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -64,8 +64,7 @@
             android:layout_above="@+id/buttonReset"
             android:layout_centerHorizontal="true"
             android:onClick="suma"
-            android:textSize="70dp"
-            />
+            android:textSize="70dp" />
     </LinearLayout>
 
     <LinearLayout

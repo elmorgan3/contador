@@ -22,13 +22,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //La inicializo aqui en el contructor junto con el contadir
+
+        //La inicializo aqui en el contructor junto con el contador
         textoResultado = (TextView)findViewById(R.id.textViewNum);
 
         contador = 0;
 
-        ///////////esto es de una classe y lo otro de un elemento osea un objeto
-        //Creamos una instancia de la clase EventoTeclado
+
+        ///////EventoTeclado es de una classe que esta creada abajo y creamos un objeto de esa clase
         EventoTeclado teclado=new EventoTeclado();
 
         //Creamos un objeto de tipo EditText que se identifique con el numero del reset
@@ -97,7 +98,9 @@ public class MainActivity extends Activity {
     }
 
 
-    //Esta clase es para que funcione el ok del teclado
+
+
+    //////Esta clase es para que funcione el ok del teclado
     class EventoTeclado implements TextView.OnEditorActionListener
     {
 
